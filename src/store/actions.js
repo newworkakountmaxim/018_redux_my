@@ -14,9 +14,9 @@ export const doneTask = (task) => {
     }
 };
 
-export const removeTask = (task) => {
-    return{
-        type: REMOVE_TASK,
-        payload: task
-    }
-};
+// export const removeTask = (task) => {
+//     return{
+//         type: REMOVE_TASK,
+//         payload: task
+//     }
+// };

@@ -1,8 +1,6 @@
 // import React from 'react';
 // const TaskList = (props) => {
 //     const {tasks} = props;
-//
-//
 //     console.log(tasks);
 //     return(
 //         <ul>
@@ -21,6 +19,9 @@
 
 
 import React, { Component } from 'react';
+import {doneTask} from '../../store/actions';
+import {connect} from 'react-redux';
+
 
 class TaskList extends Component {
 
@@ -28,27 +29,28 @@ class TaskList extends Component {
         tasks: this.props.tasks
     };
 
-
-
-
     render(){
 
-
         const {tasks} = this.state;
-        console.log(tasks);
+        console.log(this.state);
         return(
             <ul>
                 {tasks.map((el, index) => (
+                    //console.log(el);
                     <li key={index}>
                         {el.name}
-                        {el.done?"":<button onClick={this.onDoneHandler}>Done</button>}
+                        {/*{el.done?"":<button onClick={this.onDoneHandler()}>Done</button>}*/}
+                        {el.done?"":<button onClick={()=>{this.onDoneHandler(el, doneTask)}}>Done</button>}
                         <button onClick={this.onRemoveHandler}>Remove</button>
                     </li>
                 ))}
             </ul>
         );
     }
-    onDoneHandler = () => {console.log('Done');};
+    onDoneHandler = (el, doneTask) => {
+        doneTask(el);
+        console.log(el);
+    };
     onRemoveHandler = () => {console.log('Remove');};
 
 
@@ -66,3 +68,7 @@ class TaskList extends Component {
 }
 
 export default TaskList;
+// export default connect(
+//     putStateToProps,
+//     putActionsToComponent
+// )(App);

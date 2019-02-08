@@ -28,14 +28,14 @@ export const reducer = (state=initState,action) => {
                 tasks: state.tasks
                 //tasks: state.tasks.map((el, i) => action.payload === i?{...el, done:true}:el) //вариант 2
             };
-        // case REMOVE_TASK:
-        //     return {
-        //         ...state,
-        //         tasks: [
-        //             ...state.tasks,
-        //             {name: action.payload}
-        //         ]
-        //     }
+        case REMOVE_TASK:
+            return {
+                ...state,
+                tasks: [
+                    ...state.tasks,
+                    {name: action.payload}
+                ]
+            }
     }
     return state;
 };
