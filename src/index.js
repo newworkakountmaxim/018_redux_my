@@ -17,7 +17,7 @@ export const REMOVE_TASK = 'REMOVE_TASK';
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ ());
 
-console.log(store.getState());
+//console.log(store.getState());
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

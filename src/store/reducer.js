@@ -12,6 +12,7 @@ export const reducer = (state=initState,action) => {
 
     switch  (action.type) {
         case ADD_NEW_TASK:
+            console.log(888);
             return {
                 ...state,
                 tasks: [
@@ -20,6 +21,7 @@ export const reducer = (state=initState,action) => {
                 ]
             };
         case DONE_TASK:
+            console.log(111);
             state.tasks[action.payload].done = true;
             return {
                 ...state,

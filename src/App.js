@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import {TaskList} from './components/TaskList';
+// import {TaskList} from './components/TaskList';
+import TaskList from "./components/TaskList";
 import {addNewTask} from './store/actions';
+//import {doneTask} from './store/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 class App extends Component {
   render() {
 
-    console.log(this.props);
+    //console.log(this.props);
     const {tasks, addNewTask} = this.props;
 
     return (
@@ -38,6 +40,7 @@ const putStateToProps = (state) => {
 };
 
 const putActionsToComponent = (dispatch) => {
+    //console.log(dispatch);
     return{
       addNewTask: bindActionCreators(addNewTask, dispatch)
     }
